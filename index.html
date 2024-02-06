@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello world</h1>
-</body>
+	<head>
+		<div w3-include-html="includes/head.html"></div>
+	</head>
+	<body>
+		<!--  skip intro  -->
+		<div w3-include-html="projects/skipintro-banner.html"></div>
+
+		<!--  start archive  -->
+		<div class="w3-container nopadding show">
+			<div class="w3-row">
+				<!--  left fixed col  -->
+				<aside class="w3-col s12 m3 l2 w3-hide-small" id="left">
+					<div w3-include-html="includes/nav.html"></div>
+					<div w3-include-html="includes/links.html"></div>
+				</aside>
+
+				<!--  right scrollabe col CONTENT  -->
+				<div class="w3-col m9 l10 show" id="right">
+					<div w3-include-html="projects/urban.html"></div>
+					<div w3-include-html="projects/stoned.html"></div>
+					<div w3-include-html="projects/architecture.html"></div>
+					<div w3-include-html="projects/ice-ice-baby.html"></div>
+					<div w3-include-html="projects/outside.html"></div>
+					<div w3-include-html="projects/green.html"></div>
+					<div w3-include-html="projects/video.html"></div>
+					<div w3-include-html="projects/gif.html"></div>
+					<div w3-include-html="projects/thumbs.html"></div>
+					<div w3-include-html="projects/slideshow.html"></div>
+					<div w3-include-html="projects/slideshow2.html"></div>
+				</div>
+			</div>
+		</div>
+		<!--  end archive  -->
+
+		<!--  Javascript that makes the magic happen -->
+		<script src="https://www.w3schools.com/lib/w3.js"></script>
+		<script>
+
+			w3.includeHTML(myCallback);
+
+			function myCallback() {
+				// first slideshow with buttons
+				var myShow1 = w3.slideshow(".slides1", 0);
+				document.getElementById("previous1").addEventListener("click", function(){myShow1.previous();});
+				document.getElementById("next1").addEventListener("click", function(){myShow1.next();});
+				// second slideshow autoplay no buttons
+				var myShow2 = w3.slideshow(".slides2", 1000);
+				// second slideshow autoplay no buttons
+				var myShow3 = w3.slideshow(".slides3", 1500);
+			}		
+		</script>
+
+
+	</body>
 </html>
